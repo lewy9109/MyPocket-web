@@ -4,6 +4,7 @@ body
     background-color: slategrey;
     margin: 0px;
     font-size: 20px;
+    background-image: url('img/tlo.png');
 
 }
 .logo
@@ -38,4 +39,47 @@ main
     padding: 30px;
     text-align: center;
     width: 280px;
+    -webkit-box-shadow: 7px -4px 13px 4px rgba(0,0,0,0.68);
+    -moz-box-shadow: 7px -4px 13px 4px rgba(0,0,0,0.68);
+    box-shadow: 7px -4px 13px 4px rgba(0,0,0,0.68);
+}
+input[type=text],
+input[type=password]
+{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 3px;
+    width: 250px;
+    background-color: rgb(223, 221, 221);
+    color: #666;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    height: 30px;
+    font-size: 20px;
+    outline: none;
+}
+input[type=text]:focus,
+input[type=password]:focus
+{
+    -webkit-box-shadow: 1px 1px 12px 3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 1px 12px 3px rgba(0,0,0,0.75);
+    box-shadow: 1px 1px 12px 3px rgba(0,0,0,0.75);
+}
+input[type=submit]
+{
+    margin-top: 20px;
+    width: 254px;
+    font-size: 20px;
+    background-color: #36b03c;
+    color: #ddd;
+    padding: 15px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    letter-spacing: 2px;
+    outline: none;
+}
+input[type=submit]:hover
+{
+    background-color: #37b93d;
 }
