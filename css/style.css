@@ -1,0 +1,41 @@
+body 
+{
+    width: auto;
+    background-color: slategrey;
+    margin: 0px;
+    font-size: 20px;
+
+}
+.logo
+{
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding: 40px 0;
+
+}
+main
+{
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 700px;
+    margin-top: 100px;
+}
+#content
+{
+    float: left;
+    width: 600px;
+    padding: 30px;
+    text-align: center;
+}
+#logging
+{
+    float: left;
+    padding: 30px;
+    text-align: center;
+    width: 280px;
+}
