@@ -1,14 +1,4 @@
-body 
-{
-    width: auto;
-    background-color: slategrey;
-    margin: 0px;
-    font-size: 20px;
-    background-image: url('img/tlo.png');
-
-}
-.logo
-{
+.logo{
     font-size: 40px;
     font-weight: 700;
     letter-spacing: 3px;
@@ -16,11 +6,11 @@ body
     margin-right: auto;
     text-align: center;
     padding: 40px 0;
-
+    color: whitesmoke;
 }
 main
 {
-    width: 1000px;
+    width: 1050px;
     margin-left: auto;
     margin-right: auto;
     min-height: 700px;
@@ -32,6 +22,7 @@ main
     width: 600px;
     padding: 30px;
     text-align: center;
+    margin-right: 50px;
 }
 #logging
 {
@@ -43,6 +34,13 @@ main
     -moz-box-shadow: 7px -4px 13px 4px rgba(0,0,0,0.68);
     box-shadow: 7px -4px 13px 4px rgba(0,0,0,0.68);
 }
+#foot
+{
+    padding: 10px 10px;
+    min-height: 50px;
+    color: whitesmoke;
+    font-size: 20px;
+}
 input[type=text],
 input[type=password]
 {
@@ -50,8 +48,8 @@ input[type=password]
     margin-bottom: 5px;
     padding: 3px;
     width: 250px;
-    background-color: rgb(223, 221, 221);
-    color: #666;
+    background-color: #90d894;
+    color: rgb(95, 95, 95);
     border: 2px solid #ddd;
     border-radius: 5px;
     height: 30px;

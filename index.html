@@ -5,8 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=7">
     <title>Moje Finanse</title>
-    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css">
+         <style>
+            body 
+            {
+                background-image: url('img/tlo.jpg');
+                margin: 0px;
+                font-size: 25px;
+
+            }
+            header
+            {
+                background-image: url('img/dark.png');
+            }
+            footer{
+                background-image: url('img/dark.png');
+            }
+        </style>
+
 </head>
+
 <body>
   <header>
       <div class = "logo">
@@ -14,22 +32,26 @@
       </div>
   </header>
   <main>
-      <div id = "content">
-        Witaj w świecie finansów! <br/> 
-        Dołacz do ludzi dbających o finanse osobiste. <br/>
-        Z nami dowiesz się czy Twoje finanse idą w dobrą strone. <br/> 
-        Dodawaj wszystkie swoje dochody oraz wydatki do programu a my przedstawimy Ci w jak ma się Twój portfel. <br/>
-      </div>
-      <div id ="logging">
-        <from>
-            
-            <input type="text" placeholder="login" onfocus="this.placeholder=''" onblur="this.placeholder='login'">
-            <input type="password" placeholder="haslo" onfocus="this.placeholder=''" onblur="this.placeholder='haslo'">
-            <input type="submit" value="Zaloguj się">
-            <input type="submit" value="Rejestracja">
-        </from>
-    
-      <div style="clear:both"></div>
+        <section>
+            <div id = "content">
+                Witaj w świecie finansów! <br/> <br/>
+                Dołacz do ludzi dbających o finanse osobiste. <br/>
+                Z nami dowiesz się czy Twoje finanse idą w dobrą strone. <br/> 
+                Dodawaj wszystkie swoje dochody oraz wydatki do programu a my przedstawimy Ci w jak ma się Twój portfel. <br/>
+            </div>
+        </section>
+        <section>
+            <div id ="logging">
+                <from>
+                    <input type="text" placeholder="login" onfocus="this.placeholder=''" onblur="this.placeholder='login'">
+                    <input type="password" placeholder="haslo" onfocus="this.placeholder=''" onblur="this.placeholder='haslo'">
+                    <input type="submit" value="Zaloguj się">
+                    <input type="submit" value="Rejestracja">
+                 </from>
+        
+            <div style="clear:both"></div>
+        </section>
+      
   </main>
   <footer>
       <div id="foot">
