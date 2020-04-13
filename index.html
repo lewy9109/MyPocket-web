@@ -3,60 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=7">
     <title>Moje Finanse</title>
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
-         <style>
-            body 
-            {
-                background-image: url('img/tlo.jpg');
-                margin: 0px;
-                font-size: 25px;
-
-            }
-            header
-            {
-                background-image: url('img/dark.png');
-            }
-            footer{
-                background-image: url('img/dark.png');
-            }
-        </style>
-
-</head>
-
-<body>
-  <header>
-      <div class = "logo">
-            Moje Finanse
-      </div>
-  </header>
-  <main>
-        <section>
-            <div id = "content">
-                Witaj w świecie finansów! <br/> <br/>
-                Dołacz do ludzi dbających o finanse osobiste. <br/>
-                Z nami dowiesz się czy Twoje finanse idą w dobrą strone. <br/> 
-                Dodawaj wszystkie swoje dochody oraz wydatki do programu a my przedstawimy Ci w jak ma się Twój portfel. <br/>
-            </div>
-        </section>
-        <section>
-            <div id ="logging">
-                <from>
-                    <input type="text" placeholder="login" onfocus="this.placeholder=''" onblur="this.placeholder='login'">
-                    <input type="password" placeholder="haslo" onfocus="this.placeholder=''" onblur="this.placeholder='haslo'">
-                    <input type="submit" value="Zaloguj się">
-                    <input type="submit" value="Rejestracja">
-                 </from>
+    <link rel="stylesheet" href="css/fontello.css">
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <style>
+        body
+        {
+            background-image: url(img/tlo.jpg);
+        }
+        header{
+            background-color: rgb(245, 245, 243);
+        }
         
-            <div style="clear:both"></div>
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <section class="brand">
+                <a href="index.html"><div class="logo_fontello_wallet"> <i class="icon-wallet"></i></div></a>
+                <a href="index.html"><div class="logo_name">Moje Finanse</div></a>
+            </section>
+        </header>
+        <section class="slider">
+            <img src="img/pig.jpg" alt="swinka"/>
         </section>
-      
-  </main>
-  <footer>
-      <div id="foot">
-            Strona stworzona przez Krystian Lewandowski
-      </div>
-  </footer>
+        <main>
+            <article>
+               
+                co tu słychac
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi reprehenderit deleniti, 
+                    sunt fugiat vel quas dolorem tempora similique possimus dolores at ipsum temporibus 
+                    earum ducimus pariatur quod a aspernatur sint.</p>
+                <p>Repudiandae, molestiae ducimus temporibus, voluptatum iure quidem rem distinctio praesentium 
+                    quam necessitatibus tempore? Magni iste animi soluta ratione officia autem velit laudantium 
+                    fugiat iure tempore, corporis placeat vero corrupti dolorem!</p>
+                <p>Voluptas, perspiciatis corporis alias quisquam mollitia iste ipsum atque provident 
+                    debitis possimus quidem voluptatem magni deserunt totam quis ipsa nesciunt sunt repellendus 
+                    distinctio. Blanditiis repudiandae aliquid ab, nihil facilis quis.</p>
+            </article>
+            <aside>
+                <section class="logg_panel"><p>Voluptas, perspiciatis corporis alias quisquam mollitia iste ipsum atque provident 
+                    debitis possimus quidem voluptatem magni deserunt totam quis ipsa nesciunt sunt repellendus 
+                    distinctio. Blanditiis repudiandae aliquid ab, nihil facilis quis.</p></section>
+                <section class="register_panel"><p>Voluptas, perspiciatis corporis alias quisquam mollitia iste ipsum atque provident 
+                    debitis possimus quidem voluptatem magni deserunt totam quis ipsa nesciunt sunt repellendus 
+                    distinctio. Blanditiis repudiandae aliquid ab, nihil facilis quis.</p></section>
+            </aside>
+        </main>
+
+        <footer>
+            <p>Copyight &copy; 2020 - Krystian Lewandowski</p> 
+        </footer>
+    </div>  
 </body>
 </html>
