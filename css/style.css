@@ -5,7 +5,7 @@ body{
     margin: 0;
     font-size: 16px;
     font-family: 'Open Sans', sans-serif;
-    
+    padding: 20px;
 }
 a:link{
     text-decoration: none;
@@ -18,10 +18,7 @@ img {
 /* Container */
 .container{
     max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: 0 auto;
     border: 1px solid #e1e1e1;
     border-radius: 5px;
     box-shadow: 0 0 35px #00000015;
@@ -38,16 +35,45 @@ header{
 .brand img{
     display: block;
 }
-
 .brand{
     display: flex;
-    align-items: center;
-    font-size: 70px;
+    align-items: left;
+    font-size: 60px;
     margin-right: auto;
     margin-left: auto;
     font-weight: 700;
     letter-spacing: 3px;
+    justify-content: space-between;
 }
+.log {
+    display: flex;
+    font-size: 20px;
+    justify-content: right;
+    padding: 5px;
+}
+.button_log
+{
+    display: block;
+    padding: 3px;
+    background-color:  rgb(151, 204, 101);
+    color: rgb(95, 95, 95);
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.button_log:focus
+{
+    -webkit-box-shadow: 1px 1px 12px 3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 1px 12px 3px rgba(0,0,0,0.75);
+    box-shadow: 1px 1px 12px 3px rgba(0,0,0,0.75);
+}
+.button_log:hover
+{
+    background-color: rgb(151, 204, 101);
+}
+
 .logo_fontello_wallet{
     color: rgb(151, 204, 101)
 }
@@ -62,11 +88,90 @@ main {
     display: flex;
     justify-content: space-between;
     border-top: solid 1px #e1e1e1;
+    background-color: rgb(245, 245, 243);
 }
 
 /* Article */
 article {
     padding: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+}
+.logging {
+    border-radius: 30px;
+    margin: 100px auto;
+    padding: 30px;
+    text-align: center;
+    width: 400px;
+    border-right: solid 1px #e1e1e1;
+    border-top: solid 1px #e1e1e1;
+    border-bottom: solid 1px #e1e1e1;
+}
+.register {
+    border-radius: 30px;
+    border: solid 1px #e1e1e1;
+    margin: 100px auto;
+    padding: 30px;
+    text-align: center;
+    width: 400px;
+    
+}
+input[type=text],
+input[type=password],
+input[type=email]
+{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 3px;
+    width: 250px;
+    background-color: rgb(151, 204, 101);
+    color: rgb(95, 95, 95);
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    height: 40px;
+    font-size: 20px;
+    outline: none;
+}
+input[type=text]:focus,
+input[type=password]:focus
+{
+    -webkit-box-shadow: 1px 1px 12px 3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 1px 12px 3px rgba(0,0,0,0.75);
+    box-shadow: 1px 1px 12px 3px rgba(0,0,0,0.75);
+}
+input[type=submit]
+{
+    margin-top: 20px;
+    width: 254px;
+    font-size: 20px;
+    background-color: rgb(119, 161, 79);
+    color: #f1f1f1f1;
+    font-weight: 600;
+    padding: 15px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    outline: none;
+}
+input[type=submit]:hover
+{
+    background-color: rgb(151, 204, 101);
+}
+.main_page {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px;
+    display: flex;
+}
+.menu_bar
+{
+    width: 300px;
+}
+.action {
+    float: left;
+    padding: 20px; 
 }
 
 /* Aside */
@@ -75,9 +180,26 @@ aside {
 }
 /* Footer */
 footer {
-    background-color: #f8f8f8;
+    background-color: rgb(245, 245, 243);
     border-top: solid 1px #e1e1e1;
     text-align: center;
     padding: 5px 10px;
     margin: 0;
+}
+
+@media (max-width: 375px)
+{
+    
+    header
+    {
+        flex-direction: column;
+    }
+    .brand {
+        font-size: 40px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    main{
+        flex-direction: column;
+    }
 }

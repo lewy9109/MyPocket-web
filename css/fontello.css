@@ -56,3 +56,7 @@
 }
  
 .icon-wallet:before { content: '\e800'; font-size: 60px;} /* '' */
+@media (max-width: 375px)
+{
+  .icon-wallet:before { content: '\e800'; font-size: 40px;} /* '' */
+}
