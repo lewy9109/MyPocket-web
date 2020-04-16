@@ -35,10 +35,17 @@ header{
 .brand img{
     display: block;
 }
+.log h4 {
+    margin: 0;
+    padding: 0;
+}
+.brand h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 60px;
+}
 .brand{
     display: flex;
-    align-items: left;
-    font-size: 60px;
     margin-right: auto;
     margin-left: auto;
     font-weight: 700;
@@ -80,43 +87,7 @@ header{
 .logo_name{
     color: rgb(151, 204, 101)
 }
-/* Main */
-.slider img {
-    display: block;
-}
-main {
-    display: flex;
-    justify-content: space-between;
-    border-top: solid 1px #e1e1e1;
-    background-color: rgb(245, 245, 243);
-}
 
-/* Article */
-article {
-    padding: 30px;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-}
-.logging {
-    border-radius: 30px;
-    margin: 100px auto;
-    padding: 30px;
-    text-align: center;
-    width: 400px;
-    border-right: solid 1px #e1e1e1;
-    border-top: solid 1px #e1e1e1;
-    border-bottom: solid 1px #e1e1e1;
-}
-.register {
-    border-radius: 30px;
-    border: solid 1px #e1e1e1;
-    margin: 100px auto;
-    padding: 30px;
-    text-align: center;
-    width: 400px;
-    
-}
 input[type=text],
 input[type=password],
 input[type=email]
@@ -173,11 +144,69 @@ input[type=submit]:hover
     float: left;
     padding: 20px; 
 }
-
-/* Aside */
-aside {
-    padding: 20px;
+/* Main */
+.slider img {
+    display: block;
 }
+main {
+    justify-content: space-between;
+    display: flex;
+    border-top: solid 1px #e1e1e1;
+    background-color: rgb(245, 245, 243);
+}
+
+
+
+.logging {
+    justify-content: space-between;
+    display: flex;
+    border-radius: 30px;
+    margin: 100px auto;
+    padding: 30px;
+    text-align: center;
+    width: 400px;
+    border-right: solid 1px #e1e1e1;
+    border-top: solid 1px #e1e1e1;
+    border-bottom: solid 1px #e1e1e1;
+}
+.register {
+    justify-content: space-between;
+    display: flex;
+    border-radius: 30px;
+    border: solid 1px #e1e1e1;
+    margin: 100px auto;
+    padding: 30px;
+    text-align: center;
+    width: 400px;
+}
+
+/* Article */
+article {
+    justify-content: space-between;
+    display: flex;
+    padding: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.logging
+{
+    justify-content: space-between;
+    display: flex;
+    padding: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.hello
+{
+    padding: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.hello h4 {
+    text-align: center;
+}
+
 /* Footer */
 footer {
     background-color: rgb(245, 245, 243);
