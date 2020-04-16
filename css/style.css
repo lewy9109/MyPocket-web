@@ -141,9 +141,11 @@ input[type=submit]:hover
     width: 300px;
 }
 .action {
-    float: left;
+    display: block;
     padding: 20px; 
+    justify-content: space-between;
 }
+.
 /* Main */
 .slider img {
     display: block;
