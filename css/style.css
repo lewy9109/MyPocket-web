@@ -158,22 +158,7 @@ main {
 }
 
 
-
-.logging {
-    justify-content: space-between;
-    display: flex;
-    border-radius: 30px;
-    margin: 100px auto;
-    padding: 30px;
-    text-align: center;
-    width: 400px;
-    border-right: solid 1px #e1e1e1;
-    border-top: solid 1px #e1e1e1;
-    border-bottom: solid 1px #e1e1e1;
-}
 .register {
-    justify-content: space-between;
-    display: flex;
     border-radius: 30px;
     border: solid 1px #e1e1e1;
     margin: 100px auto;
