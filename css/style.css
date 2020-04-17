@@ -90,7 +90,9 @@ header{
 
 input[type=text],
 input[type=password],
-input[type=email]
+input[type=email],
+input[type=date],
+select
 {
     margin-top: 5px;
     margin-bottom: 5px;
@@ -111,6 +113,12 @@ input[type=password]:focus
     -moz-box-shadow: 1px 1px 12px 3px rgba(0,0,0,0.75);
     box-shadow: 1px 1px 12px 3px rgba(0,0,0,0.75);
 }
+input[type=text]::placeholder,
+input[type=email]::placeholder, 
+input[type=password]::placeholder 
+{ /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgb(14, 125, 177);
+}
 input[type=submit]
 {
     margin-top: 20px;
@@ -130,20 +138,53 @@ input[type=submit]:hover
 {
     background-color: rgb(151, 204, 101);
 }
+.field input[type=submit] {
+    margin-top: 5px;
+    width: 122px;
+    font-size: 20px;
+    background-color: rgb(119, 161, 79);
+    color: #f1f1f1f1;
+    font-weight: 600;
+    padding: 15px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    outline: none;
+}
+.field input[type=submit]:hover
+{
+    background-color: rgb(151, 204, 101);
+}
+textarea {
+    background-color: rgb(151, 204, 101);
+}
+
 .main_page {
     display: flex;
     justify-content: space-between;
     padding: 50px;
-    display: flex;
+    width: 100%;
+}
+.Income_panel {
+    width: 60%;
+    text-align: center;
+    display: column;
+}
+.Expense_panel
+{
+    width: 60%;
+    text-align: center;
 }
 .menu_bar
 {
-    width: 300px;
+    width: 40%;
 }
 .action {
     display: block;
     padding: 20px; 
     justify-content: space-between;
+    width: 60%;
 }
 
 /* Main */
@@ -157,7 +198,16 @@ main {
     background-color: rgb(245, 245, 243);
 }
 
-
+.logging {
+    border-radius: 30px;
+    margin: 100px auto;
+    padding: 30px;
+    text-align: center;
+    width: 400px;
+    border-right: solid 1px #e1e1e1;
+    border-top: solid 1px #e1e1e1;
+    border-bottom: solid 1px #e1e1e1;
+}
 .register {
     border-radius: 30px;
     border: solid 1px #e1e1e1;
@@ -166,7 +216,9 @@ main {
     text-align: center;
     width: 400px;
 }
+.field {
 
+}
 /* Article */
 article {
     justify-content: space-between;

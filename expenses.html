@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moje Finanse</title>
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fontello.css">
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <style>
+        body
+        {
+            background-image: url(img/tlo.jpg);
+        }
+        header{
+            background-color: rgb(245, 245, 243);
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <section class="brand">
+                <a href="index.html"><div class="logo_fontello_wallet"> <i class="icon-wallet"></i></div></a>
+                <a href="index.html"><div class="logo_name"><h2>Moje Finanse</h2></div></a>
+            </section>
+            <section class="log">
+                <a href="log.html"><div class ="button_log"><h4>Wyloguj</h4></div></a>
+            </section>
+        </header>
+        <main>
+            <section class="main_page">
+                <div class ="menu_bar">
+                        <input type="submit" value="Dodaj Przychód">
+                        <input type="submit" value="Dodaj Wydatek">
+                        <input type="submit" value="Bilans">
+                        <input type="submit" value="Ustawienia">
+                </div>
+                <div class ="Expense_panel">
+                    <h2>Dodaj Przychód</h2>
+                    <div class="field">
+                        <input type="text" placeholder="Kwota" id = "income" onfocus=" this.placeholder=''" onblur="this.placeholder='Kwota'">
+                    </div>
+                    <div class="field">
+                        <input type="date">
+                    </div>
+                    <div class="field">
+                        <div class = "form">
+                            <select name="lista">
+                                <option value = "Praca">Jedzenie</option>
+                                <option value="Opcja 2">Mieszkanie</option>
+                                <option>Transport</option>
+                                <option>Telekomunikacja</option>
+                                <option value=""> Opieka zdrowotna</option>
+                                <option value=""> Ubranie</option>
+                                <option value=""> Higiena</option>
+                                <option value=""> Dzieci </option>
+                                <option value=""> Rozrywka</option>
+                                <option value=""> Wycieczka</option>
+                                <option value="">Szkolenia</option>
+                                <option value="">Książki</option>
+                                <option value="">Oszczędności</option>
+                                <option value="">Na złotą jesień, czyli emeryturę</option>
+                                <option value="">Spłata długów</option>
+                                <option value="">Darowizna</option>
+                                <option value="">Inne wydatki</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <textarea name="komentarz" cols="28" rows="5" placeholder="Dodaj komentarz" onfocus=" this.placeholder=''" onblur="this.placeholder='Dodaj komentarz'" ></textarea>
+                    </div>
+                    <div class="field">
+                        <input type="submit" value="Dodaj" >
+                        <input type="submit" value="Anuluj" >
+                    </div>
+             </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Copyight &copy; 2020 - Krystian Lewandowski</p> 
+        </footer>
+    </div>  
+</body>
+</html>
