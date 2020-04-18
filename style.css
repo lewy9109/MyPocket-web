@@ -1,0 +1,129 @@
+*, *:before, *:after{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0px;
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+    background-color: rgb(242, 242, 242);
+}
+/* kolory:
+czarny 13 13 13
+szary 119, 119, 119
+napisy jasny szary 171 171 171
+zolty 235 229 116
+tlo 242 242 242
+*/
+/* Header */
+header {
+    padding: 20px;
+    background-color: rgb(13, 13, 13);
+    color: rgb(253, 229, 116);
+    display: flex;
+}
+.discripton {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    color: rgb(13 , 13, 13);
+    
+}
+
+span {
+    display: block;
+    margin-top: 30px;
+    border-radius: 5px;
+    background-color: rgb(245, 245, 243);
+    padding: 20px;
+    opacity: 60%;
+}
+label {
+    display: flex
+}
+.col-3 {
+    display: contents;
+}
+.col-md-2 {
+    display: contents;
+}
+.brand {
+    display: flex;
+}
+/* NAV */
+nav {
+    background-color: rgb(119, 119, 119);
+}
+
+/* main */
+main {
+    min-height: 400px;
+    background-color: rgb(245, 245, 243);
+}
+.container {
+    min-height: 700px;
+}
+.log_panel {
+    margin-top: 30px;
+    border-radius: 5px;
+    background-color: rgb(245, 245, 243);
+    padding: 20px;
+}
+.register_panel {
+    max-width: 350px;
+    margin-top: 30px;
+    border-radius: 5px;
+    background-color: rgb(245, 245, 243);
+    padding: 20px;
+}
+.hello_panel {
+    display: block;
+    align-items: center;
+}
+/*Section*/
+.wrapper {
+    background-image: url(img/rupixen-com-Q59HmzK38eQ-unsplash-3.jpg);
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/*Inputy*/
+input[type=text], 
+input[type= password],
+input[type= email],
+select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+input[type=submit] {
+    width: 100%;
+    background-color: rgb(253, 229, 116);
+    color: rgb(119, 119, 119);
+    font-weight: 700;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+  
+input[type=submit]:hover {
+    background-color: rgb(248, 219, 89);
+  }
+
+/* Footer */
+footer {
+    background-color: rgb(245, 245, 243);
+    border-top: solid 1px #e1e1e1;
+    text-align: center;
+    padding: 5px 10px;
+    margin: 0;
+}
