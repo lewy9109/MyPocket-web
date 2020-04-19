@@ -8,6 +8,20 @@ body{
     font-family: 'Open Sans', sans-serif;
     background-color: rgb(242, 242, 242);
 }
+a:link {
+    text-decoration: none;
+}
+a:visited {
+    text-decoration: none;
+}
+.wrapper {
+    background-image: url(img/rupixen-com-Q59HmzK38eQ-unsplash-3.jpg);
+    min-height: 700px;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
 /* kolory:
 czarny 13 13 13
 szary 119, 119, 119
@@ -17,51 +31,57 @@ tlo 242 242 242
 */
 /* Header */
 header {
-    padding: 20px;
     background-color: rgb(13, 13, 13);
-    color: rgb(253, 229, 116);
     display: flex;
+    color: rgb(253, 229, 116);
 }
 .discripton {
-    display: block;
     font-size: 20px;
     font-weight: 700;
     color: rgb(13 , 13, 13);
-    
-}
-
-span {
-    display: block;
     margin-top: 30px;
     border-radius: 5px;
     background-color: rgb(245, 245, 243);
     padding: 20px;
     opacity: 60%;
 }
+
 label {
     display: flex
 }
-.col-3 {
-    display: contents;
-}
-.col-md-2 {
-    display: contents;
-}
-.brand {
-    display: flex;
-}
+
 /* NAV */
 nav {
-    background-color: rgb(119, 119, 119);
+    width: 100%;
+    display: block;
+}
+.navbar_top a {
+    color: rgb(253, 229, 116);
+    display: flex;
+    font-size: 40px;
+    font-weight: 800;
+}
+nav h1 {
+    margin-left: 10px;
 }
 
 /* main */
 main {
-    min-height: 400px;
-    background-color: rgb(245, 245, 243);
-}
-.container {
     min-height: 700px;
+    background-color: rgb(245, 245, 243);
+    text-align: center;
+}
+.main_panel {
+    margin-top: 100px;
+    max-width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.manage_panel {
+    width: 50%;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 .log_panel {
     margin-top: 30px;
@@ -76,23 +96,53 @@ main {
     background-color: rgb(245, 245, 243);
     padding: 20px;
 }
-.hello_panel {
-    display: block;
-    align-items: center;
-}
-/*Section*/
-.wrapper {
-    background-image: url(img/rupixen-com-Q59HmzK38eQ-unsplash-3.jpg);
-}
-img {
-    max-width: 100%;
-    height: auto;
+
+.heading {
+    justify-content: center;
+    width: 100%;
+    display: flex;
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 20px;
 }
 
+/*bilans panel*/
+.bilans_panel {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    display: block;
+    border: 2px solid #ccc;
+    padding: 10px;
+    font-weight: 600;
+    max-height: 300px;
+    overflow: scroll;
+    
+}
+.income_box {
+    padding: 5px;
+    border: 1px solid #ccc;
+    background-color: rgb(127, 243, 177);
+    display: flex;
+}
+.expense_box {
+    padding: 5px;
+    border: 1px solid #ccc;
+    background-color: rgb(255, 148, 129);
+    display: flex;
+}
+.income_item {
+    width: 33%;
+}
+/*Main nav*/
+
+
 /*Inputy*/
+
 input[type=text], 
 input[type= password],
 input[type= email],
+input[type=date],
 select {
     width: 100%;
     padding: 12px 20px;
@@ -126,4 +176,78 @@ footer {
     text-align: center;
     padding: 5px 10px;
     margin: 0;
+}
+/* RWD */
+
+@media (max-width: 800px) {
+    .navbar_top a {
+        color: rgb(253, 229, 116);
+        display: flex;
+        font-size: 40px;
+        font-weight: 600;
+    }
+    .main_panel {
+        margin-top: 50px;
+        max-width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .manage_panel {
+        width: 70%;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+}
+@media (max-width: 330px) {
+    .navbar_top a {
+        color: rgb(253, 229, 116);
+        display: block;
+        font-size: 20px;
+        font-weight: 600;
+    }
+    .main_panel {
+        margin-top: 50px;
+        max-width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .heading {
+        display: flex;
+        font-size: 30px;
+        font-weight: 400;
+    }
+    .manage_panel {
+        width: 95%;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 415px) {
+    .navbar_top a {
+        color: rgb(253, 229, 116);
+        display: flex;
+        font-size: 30px;
+        font-weight: 600;
+    }
+    .main_panel {
+        margin-top: 50px;
+        max-width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .heading {
+    display: flex;
+    font-size: 30px;
+    font-weight: 400;
+    }
+    .manage_panel {
+        width: 90%;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }

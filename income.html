@@ -2,78 +2,91 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <title>Moje Finanse</title>
     <!-- Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/fontello.css">
+    <link rel="stylesheet" href="style.css">
     <!--Fonts-->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <style>
-        body
-        {
-            background-image: url(img/tlo.jpg);
-        }
-        header{
-            background-color: rgb(245, 245, 243);
-        }
-        
-    </style>
+
 </head>
 <body>
-    <div class="container">
-        <header>
-            <section class="brand">
-                <a href="index.html"><div class="logo_fontello_wallet"> <i class="icon-wallet"></i></div></a>
-                <a href="index.html"><div class="logo_name"><h2>Moje Finanse</h2></div></a>
-            </section>
-            <section class="log">
-                <a href="log.html"><div class ="button_log"><h4>Wyloguj</h4></div></a>
-            </section>
-        </header>
-        <main>
-            <section class="main_page">
-                <div class ="menu_bar">
-                        <input type="submit" value="Dodaj Przychód">
-                        <input type="submit" value="Dodaj Wydatek">
-                        <input type="submit" value="Bilans">
-                        <input type="submit" value="Ustawienia">
-                </div>
-                <div class ="Income_panel">
-                        <h2>Dodaj Przychód</h2>
-                        <div class="field">
-                            <input type="text" placeholder="Kwota" id = "income" onfocus=" this.placeholder=''" onblur="this.placeholder='Kwota'">
-                        </div>
-                        <div class="field">
-                            <input type="date">
-                        </div>
-                        <div class="field">
-                            <div class = "form">
-                                <select name="lista">
-                                    <option value = "Praca">Praca</option>
-                                    <option value="Opcja 2">Najem mieszkania</option>
-                                    <option>Sprzedaz</option>
-                                    <option>Odsetki bankowe</option>
-                                    <option value="">Inne</option>
-                                </select>
-                                
-                            </div>
-                        </div>
-                        <div class="field">
-                            <textarea name="komentarz" cols="28" rows="5" placeholder="Dodaj komentarz" onfocus=" this.placeholder=''" onblur="this.placeholder='Dodaj komentarz'" ></textarea>
-                        </div>
-                        <div class="field">
-                            <input type="submit" value="Dodaj" >
-                            <input type="submit" value="Anuluj" >
-                        </div>
-                </div>
-            </section>
-        </main>
+    <header>
+            <nav class="navbar_top  navbar-expand-md">
+                <a href="#" class="navbar-brand"><i class="icon-wallet d-inline-block align-bottom"></i>Moje Finanse</a>
+            </nav>   
+    </header>
+    <main>
+        <nav class="navbar  navbar-expand-md">
 
-        <footer>
-            <p>Copyight &copy; 2020 - Krystian Lewandowski</p> 
-        </footer>
-    </div>  
+            <button style="background-color: rgb(199, 199, 199);" type="button" class="navbar-toggler" data-toggle="collapse" data-target="#mainmenu" aria-controls="mainmenu" aria-expanded="false" aria-label="Przełącznik nawigacji">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainmenu">
+                <ul class= "navbar-nav">
+                    <li class="nav-item">
+                        <a href="home.html" class="nav-link"><i class="icon-home"></i>Twoje finanse</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="income.html" class="nav-link"><i class="icon-plus"></i>Przychód</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="expenses.html" class="nav-link"><i class="icon-minus"></i>Wydatek</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link"><i class="icon-chart-pie-alt"></i>Przegladaj bilans</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link"><i class="icon-user"></i>Ustawienia</a>
+                    </li>
+                </ul>
+            </div>
+        </nav> 
+        <section class="main_panel">
+            <div class="manage_panel">
+                <div class="heading"><i class="icon-plus"></i>Przychód</div>
+                <form action="#.php">
+
+                    <label for="name"> Nazwa: </label>
+                    <input type="text" id="name" name="name" placeholder="kwota..">
+
+                    <label for="date"> Data: </label>
+                    <input type="date" id="date" name="date">
+                    
+                    <label for="date">Wybierz kategorie: </label>
+                    <select name="lista">
+                        <option value = "Praca">Praca</option>
+                        <option value="Opcja 2">Najem mieszkania</option>
+                        <option>Sprzedaz</option>
+                        <option>Odsetki bankowe</option>
+                        <option value="">Inne</option>
+                    </select>
+
+                    <label for="comment"> Komentarz: </label>
+                    <input type="text" id="comment" name="comment" placeholder="komentarz..">
+                    
+                    <div style="display: flex; margin-top: 30px;">
+                        <input type="submit" value="Dodaj" style="width: 40%; margin-right: 5%; margin-left: 10%;">
+                        <input type="submit" value="Anuluj" style="width: 40%; margin-left: 5%; margin-right: 10%;">
+                    </div>
+                    
+                </form>
+            </div>
+        </section> 
+
+    </main>
+    <footer>
+        <p>Copyight &copy; 2020 - Krystian Lewandowski</p> 
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
 </html>

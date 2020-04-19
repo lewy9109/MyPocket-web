@@ -59,7 +59,7 @@
 .icon-key:before { content: '\e801'; } /* '' */
 .icon-adult:before { content: '\e802'; } /* '' */
 .icon-user:before { content: '\e803'; } /* '' */
-.icon-wallet:before { content: '\e804'; font-size: 40px; margin-top: 16px; display: block;} /* '' */
+.icon-wallet:before { content: '\e804'; font-size: 40px; /*margin: 0.67em 0;*/} /* '' */
 .icon-home:before { content: '\e805'; } /* '' */
 .icon-calendar:before { content: '\e806'; } /* '' */
 .icon-phone:before { content: '\e807'; } /* '' */
