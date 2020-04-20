@@ -74,6 +74,7 @@ main {
 .main_panel {
     margin-top: 100px;
     max-width: 70%;
+    min-height: calc(100vh - 30px); 
     margin-left: auto;
     margin-right: auto;
 }
