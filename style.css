@@ -16,7 +16,12 @@ a:visited {
 }
 .wrapper {
     background-image: url(img/rupixen-com-Q59HmzK38eQ-unsplash-3.jpg);
-    min-height: 700px;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* Needed to position the navbar */
+    position: relative;
 }
 img {
     max-width: 100%;
@@ -106,7 +111,6 @@ main {
     font-weight: 600;
     margin-bottom: 20px;
 }
-
 /*bilans panel*/
 .bilans_panel {
     margin-left: auto;

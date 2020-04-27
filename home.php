@@ -1,3 +1,12 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['zalogowany']))
+    {
+        header('Location: index.php');
+        exit();
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -16,6 +25,8 @@
 
 </head>
 <body>
+
+
     <header>
             <nav class="navbar_top  navbar-expand-md">
                 <a href="#" class="navbar-brand"><i class="icon-wallet d-inline-block align-bottom"></i>Moje Finanse</a>
@@ -46,7 +57,7 @@
                         <a href="#" class="nav-link"><i class="icon-user"></i>Ustawienia</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link"><i class="icon-login"></i>Wyloguj</a>
+                        <a href="logOut.php" class="nav-link"><i class="icon-login"></i>Wyloguj</a>
                     </li>
                 </ul>
             </div>
@@ -105,6 +116,32 @@
             </div>
         </br>
             <div class="heading"><i class="icon-chart-pie-alt"></i>Bilans kołowy</div>
+
+            <div id="piechart"></div>
+
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+            <script type="text/javascript">
+            // Load google charts
+            google.charts.load('current', {'packages':['corechart']});
+            google.charts.setOnLoadCallback(drawChart);
+
+            // Draw the chart and set the chart values
+            function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+            ['Praca', 'Hours per Day'],
+            ['Zarobki', 8],
+            ['Wydatki', 2]
+            ]);
+
+            // Optional; add a title and set the width and height of the chart
+            var options = {'title':'Moje Finanse', 'width':550, 'height':400};
+
+            // Display the chart inside the <div> element with id="piechart"
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+            chart.draw(data, options);
+            }
+            </script>
 
         </section> 
        
