@@ -1,4 +1,14 @@
-
+<?php
+    session_start();
+    if(!isset($_SESSION['udana_rejestracja'])) 
+    {
+        header ('Location: index.php');
+        exit();
+    }
+    else {
+        unset($_SESSION['udana_rejestracja']);
+    }
+?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -20,39 +30,40 @@
     <header>
         <nav class="navbar_top">
             <a href="#" class="navbar-brand"><i class="icon-wallet d-inline-block align-bottom"></i>Moje Finanse</a>
-        </nav>  
+        </nav> 
     </header>
     <main>
         <section class="wrapper">
             <div class="container">
                 <div class="row">
-                    <div class="col">
-                        <div class = "register_panel">
-                            <form action="#.php">
+                    <div class="col-sm-6">
+                        <section class="hello_panel"> 
+                            
+                                <div class="discripton">
+                                    <h1>Dziękujemy za rejestracje w serwisie</h1>
+                                    <p>Możesz juz zalogować się na swoje konto</p> 
+                                </div>
 
-                                <label for="fname"> Imię</label>
-                                <input type="text" id="fname" name="login" placeholder="imię..">
-
-                                <label for="lname"> Nazwisko</label>
-                                <input type="text" id="lname" name="login" placeholder="nazwisko..">
-
+                                <div class = "log_panel">
+                        
+                            <form action="logIn.php" method="POST">
                                 <div class="icon-adult">Login</div>
-                                <input type="text" id="login" name="login" placeholder="login..">
-
-                                <div class="icon-mail-alt">Email</div> 
-                                <input type="email" id="email" name="login" placeholder="@..">
+                                <input type="text"  name="login" placeholder="login..">
                             
-                                <div class ="icon-key">Hasło</div> 
-                                <input type="password" id="password" name="haslo" placeholder="hasło..">
-
-                                <div class ="icon-key">Powtórz hasło</div> 
-                                <input type="password" id="rep_password" name="haslo" placeholder="powtórz hasło..">
+                               <div class ="icon-key">Hasło</div> 
+                                <input type="password" name="pass" placeholder="hasło..">
                             
-                                <input type="submit" value="Zarejestruj">
-                            </form>
+                                <input type="submit" value="Zaloguj">
+                                </form>
+                               <?php
+                                if(isset($_SESSION['blad']))
+                                echo $_SESSION['blad'];
+                                ?> 
+                                
                             </div>
+                            
+                        </section>
                     </div>
-
                 </div>
             </div>
         </section>
@@ -66,5 +77,3 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
 </html>
-
-

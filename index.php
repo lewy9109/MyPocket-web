@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if(isset($_SESSION['zalogowany']) && ($_SESSION['zalogowany']==true)) 
+    if(isset($_SESSION['zalogowany'])) 
     {
         header ('Location: home.php');
         exit();
@@ -47,20 +47,20 @@
                         <div class = "log_panel">
                         
                             <form action="logIn.php" method="POST">
-                                <label > <div class="icon-adult"></div> Login</label>
+                                <div class="icon-adult">Login</div>
                                 <input type="text"  name="login" placeholder="login..">
                             
-                                <label > <div class ="icon-key"></div> Hasło</label>
+                               <div class ="icon-key">Hasło</div> 
                                 <input type="password" name="pass" placeholder="hasło..">
                             
                                 <input type="submit" value="Zaloguj">
                             </form>
-                                <?php
+                               <?php
                                 if(isset($_SESSION['blad']))
                                 echo $_SESSION['blad'];
-                                ?>
-                                <input type="submit" value="Zarejestruj się">
-                            
+                                ?> 
+                                <a href="register.php"><div class="lbutton">Zarejestruj się</div></a>
+                                
                             </div>
                     </div>
 

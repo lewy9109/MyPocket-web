@@ -1,7 +1,6 @@
 <?php
-
     $host = "localhost";
     $db_user = "root";
     $db_password = "";
-    $db_name = "my_finance";
+    $db_name = "finance";
 ?>

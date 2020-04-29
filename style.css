@@ -34,6 +34,14 @@ napisy jasny szary 171 171 171
 zolty 235 229 116
 tlo 242 242 242
 */
+
+.error {
+    font-size: 15px;
+    color: red;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 /* Header */
 header {
     background-color: rgb(13, 13, 13);
@@ -166,7 +174,6 @@ color: #007bff;
 */
 
 /*Inputy*/
-
 input[type=text], 
 input[type= password],
 input[type= email],
@@ -181,7 +188,8 @@ select {
     box-sizing: border-box;
   }
   
-input[type=submit] {
+input[type=submit]
+ {
     width: 100%;
     background-color: rgb(253, 229, 116);
     color: rgb(119, 119, 119);
@@ -196,6 +204,25 @@ input[type=submit] {
 input[type=submit]:hover {
     background-color: rgb(248, 219, 89);
   }
+
+
+
+  /*nie dziala ??? */
+.lbutton {
+    width: 100%;
+    background-color: rgb(253, 229, 116);
+    color: rgb(119, 119, 119);
+    font-weight: 700;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.lbutton:hover{
+    background-color: rgb(248, 219, 89);
+}
   /*hamburger button*/
 .hamburger {
     width: 40px;
