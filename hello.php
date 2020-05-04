@@ -29,7 +29,7 @@
 <body>
     <header>
         <nav class="navbar_top">
-            <a href="#" class="navbar-brand"><i class="icon-wallet d-inline-block align-bottom"></i>Moje Finanse</a>
+            <a href="index.php" class="navbar-brand"><i class="icon-wallet d-inline-block align-bottom"></i>Moje Finanse</a>
         </nav> 
     </header>
     <main>

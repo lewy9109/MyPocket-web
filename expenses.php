@@ -28,7 +28,7 @@
 <body>
     <header>
             <nav class="navbar_top  navbar-expand-md">
-                <a href="#" class="navbar-brand"><i class="icon-wallet d-inline-block align-bottom"></i>Moje Finanse</a>
+                <a href="index.php" class="navbar-brand"><i class="icon-wallet d-inline-block align-bottom"></i>Moje Finanse</a>
             </nav>   
     </header>
     <main>
@@ -40,13 +40,13 @@
             <div class="collapse navbar-collapse" id="mainmenu">
                 <ul class= "navbar-nav">
                     <li class="nav-item">
-                        <a href="home.html" class="nav-link"><i class="icon-home"></i>Twoje finanse</a>
+                        <a href="home.php" class="nav-link"><i class="icon-home"></i>Twoje finanse</a>
                     </li>
                     <li class="nav-item">
-                        <a href="income.html" class="nav-link"><i class="icon-plus"></i>Przychód</a>
+                        <a href="income.php" class="nav-link"><i class="icon-plus"></i>Przychód</a>
                     </li>
                     <li class="nav-item">
-                        <a href="expenses.html" class="nav-link"><i class="icon-minus"></i>Wydatek</a>
+                        <a href="expenses.php" class="nav-link"><i class="icon-minus"></i>Wydatek</a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link"><i class="icon-chart-pie-alt"></i>Przegladaj bilans</a>
@@ -55,7 +55,7 @@
                         <a href="#" class="nav-link"><i class="icon-user"></i>Ustawienia</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link"><i class="icon-login"></i>Wyloguj</a>
+                        <a href="logOut.php" class="nav-link"><i class="icon-login"></i>Wyloguj</a>
                     </li>
                 </ul>
             </div>
@@ -66,13 +66,13 @@
                 <div class="heading"><i class="icon-minus"></i>Wydatek</div>
                 <form action="#.php">
 
-                    <label for="name"> Kwota: </label>
+                     Kwota:
                     <input type="text" id="name" name="name" placeholder="kwota..">
 
-                    <label for="date"> Data: </label>
+                     Data: 
                     <input type="date" id="date" name="date" >
                     
-                    <label for="date">Wybierz kategorie: </label>
+                    Wybierz kategorie: 
                     <select name="lista">
                         <option value = "Praca">Jedzenie</option>
                         <option value="Opcja 2">Mieszkanie</option>
@@ -93,7 +93,7 @@
                         <option value="">Inne wydatki</option>
                     </select>
 
-                    <label for="comment"> Komentarz: </label>
+                    Komentarz: 
                     <input type="text" id="comment" name="comment" placeholder="komentarz..">
                     
                     <div style="display: flex; margin-top: 30px;">

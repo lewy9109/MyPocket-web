@@ -29,7 +29,7 @@
 
     <header>
             <nav class="navbar_top  navbar-expand-md">
-                <a href="#" class="navbar-brand"><i class="icon-wallet d-inline-block align-bottom"></i>Moje Finanse</a>
+                <a href="index.php" class="navbar-brand"><i class="icon-wallet d-inline-block align-bottom"></i>Moje Finanse</a>
             </nav>   
     </header>
     <main>
@@ -42,13 +42,13 @@
             <div class="collapse navbar-collapse" id="mainmenu">
                 <ul class= "navbar-nav">
                     <li class="nav-item">
-                        <a href="home.html" class="nav-link"><i class="icon-home"></i>Twoje finanse</a>
+                        <a href="home.php" class="nav-link"><i class="icon-home"></i>Twoje finanse</a>
                     </li>
                     <li class="nav-item">
-                        <a href="income.html" class="nav-link"><i class="icon-plus"></i>Przychód</a>
+                        <a href="income.php" class="nav-link"><i class="icon-plus"></i>Przychód</a>
                     </li>
                     <li class="nav-item">
-                        <a href="expenses.html" class="nav-link"><i class="icon-minus"></i>Wydatek</a>
+                        <a href="expenses.php" class="nav-link"><i class="icon-minus"></i>Wydatek</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link"><i class="icon-chart-pie-alt"></i>Przegladaj bilans</a>

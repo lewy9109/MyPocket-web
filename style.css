@@ -70,10 +70,10 @@ nav {
 }
 .navbar_top a {
     color: rgb(253, 229, 116);
-    display: flex;
     font-size: 40px;
     font-weight: 800;
 }
+
 nav h1 {
     margin-left: 10px;
 }

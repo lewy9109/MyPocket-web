@@ -37,7 +37,7 @@
         $pass1 = $_POST['password1'];
         $pass2 = $_POST['password2'];
 
-        if(strlen($pass1)<8 || strlen($pass1)>20)
+        if(strlen($pass1)<4 || strlen($pass1)>20)
         {
             $everything_good = false;
             $_SESSION['e_password'] = "Hasło musi składać sie od 8 do 20 znaków";
@@ -111,6 +111,50 @@
                   else{
                     throw new Exception($connect->error);
                   }
+                  /////
+                    $result = $connect->query("SELECT id FROM users WHERE username = '$login'");
+                    if ($result->num_rows > 0)
+                    {
+                        $row = $result->fetch_assoc();
+                        $userid = $row['id'];
+                        
+                    }else 
+                    {
+                         throw new Exception($connect->error);
+                    }
+
+                    $result = $connect->query("SELECT name FROM expenses_category_default");
+                    if ($result->num_rows > 0) 
+                    {
+                         // output data of each row
+                         
+                        while($row = $result->fetch_assoc()) {
+                        $namecategory = $row["name"]; //wyciagniecie nazwy kategorii;
+
+                        $connect->query("INSERT INTO expenses_category_assigned_to_users 
+                        VALUES (NULL, $userid , '$namecategory')");
+                       
+                        }
+                    }else 
+                    {
+                         throw new Exception($connect->error);
+                    }
+                    
+                    $result = $connect->query("SELECT name FROM incomes_category_default ");
+                    if ($result->num_rows > 0) 
+                    {
+                         // output data of each row
+                         
+                        while($row = $result->fetch_assoc()) {
+                        $namecategory = $row["name"]; //wyciagniecie nazwy kategorii;
+
+                        $connect->query("INSERT INTO incomes_category_assigned_to_users 
+                        VALUES (NULL, $userid , '$namecategory')");
+                        }
+                    }else 
+                    {
+                         throw new Exception($connect->error);
+                    }
                     
                 }
                 $connect ->close();
@@ -149,7 +193,7 @@
 <body>
     <header>
         <nav class="navbar_top">
-            <a href="#" class="navbar-brand"><i class="icon-wallet d-inline-block align-bottom"></i>Moje Finanse</a>
+            <a href="index.php" class="navbar-brand"><i class="icon-wallet d-inline-block align-bottom"></i>Moje Finanse</a>
         </nav>  
     </header>
     <main>
