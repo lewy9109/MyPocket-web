@@ -5,6 +5,112 @@
         header('Location: index.php');
         exit();
     }
+    
+    function getDateForDatabase(string $date): string {
+        $timestamp = strtotime($date);
+        $date_formated = date('Y-m-d H:i:s', $timestamp);
+        return $date_formated;
+    }
+
+    if(isset($_POST['amount']))
+    {
+        //Udana walidacja tak
+        $everything_good = true;
+
+
+        //sprawdzanie poprawnosci kwoty
+        $amount = $_POST['amount'];
+        $amount = str_replace(",",".",$amount); //zamiana przecinka na kropke;
+        if(!is_numeric($amount))
+        {
+            $everything_good = false;
+            $_SESSION['e_amount']= "Podaj kwotę";
+        }
+        
+        //sprawdzenie daty
+        $data = $_POST['date'];
+        
+        if($data == '') //jesli nie ma daty to wstawiamy dzisiejsza z systemu
+        {
+            $data = new DateTime();
+            $data = $data->format('Y-m-d');
+        }
+
+        if(strlen($data) < 10)
+        {
+            $everything_good = false;
+            $_SESSION['e_data']= "Nie prawidłowy format daty: yyyy-mm-dd";
+        }
+       
+        $year = substr($data, 0, 4);
+        $month = substr($data, 5,2);
+        $day = substr($data, 8,2); 
+
+        if(!checkdate($month, $day, $year))
+        {
+            $everything_good = false;
+            $_SESSION['e_data']= "Nie prawidłowy format daty: yyyy-mm-dd";
+        }
+        
+        $data = getDateForDatabase($data);
+        
+
+        //swybor kategorii
+        $category = $_POST['category'];
+
+        // pobranie komentarza
+        $comment = $_POST['comment'];
+
+        require_once "connect.php"; //dane do polaczenia w pliku
+        mysqli_report(MYSQLI_REPORT_STRICT);
+
+        try
+        {
+            $connect = new mysqli($host, $db_user, $db_password, $db_name );
+            if($connect->connect_errno!=0)
+            {
+                throw new Exception(mysqli_connect_errno());
+            }
+            else 
+            {
+                if($everything_good == true)
+                {
+                    $userid = $_SESSION['id'];
+                    $result = $connect->query("SELECT id FROM incomes_category_assigned_to_users 
+                    WHERE user_id = '$userid' AND name = '$category'");
+                    if ($result->num_rows > 0) 
+                    {
+                         // output data of each row
+                         
+                        while($row = $result->fetch_assoc()) {
+                        $category_id = $row["id"]; //wyciagniecie id kategorii;
+                        }
+                    }
+                   
+
+                    if($connect->query("INSERT INTO incomes VALUES(NULL, '$userid', '$category_id', '$amount', '$data', '$comment')"))
+                    {
+                        $_SESSION['good_income'] = true;
+                        header('Location: home.php'); 
+                    }
+                    else
+                    {
+                        throw new Exception($connect->error);
+                    }
+                }
+                    
+            }
+            $connect ->close();
+        }
+        catch(Exception $e)
+        {
+            echo 'Błąd serwera, spróbuj puźniej';
+            //echo '</br>info deweloperskie '.$e;
+        }
+
+
+        
+    }
 
 ?>
 
@@ -64,29 +170,33 @@
             <div class="manage_panel">
                 <div class="heading"><i class="icon-plus"></i>Przychód</div>
 
-                <form action="#.php">
+                <form method="POST">
 
                      Kwota: 
-                    <input type="text" id="name" name="name" placeholder="kwota..">
-
-                    Data:
-                    <input type="date" id="date" name="date">
+                    <input type="text"  name="amount" placeholder="kwota..">
                     
+                    Data:
+                    <input type="date" name="date" placeholder = "yyyy-mm-dd">
+                        <?php
+                            if(isset($_SESSION['e_data'])){
+                                echo '<div class="error">'.$_SESSION['e_data'].'</div>';
+                                unset($_SESSION['e_data']);
+                            }
+                        ?>
+
                     Wybierz kategorie: 
-                    <select name="lista">
-                        <option value = "Praca">Praca</option>
-                        <option value="Opcja 2">Najem mieszkania</option>
-                        <option>Sprzedaz</option>
-                        <option>Odsetki bankowe</option>
-                        <option value="">Inne</option>
+                    <select name="category">
+                        <option value = "Wynagrodzenie" name = "Wynagrodzenie">Wynagrodzenie</option>
+                        <option value = "Odsetki" name = "Odsetki">Odsetki</option>
+                        <option value = "Allegro" name = "Allegro">Allegro</option>
+                        <option value = "Inne" name = "Inne">Inne</option>
                     </select>
 
                     Komentarz: 
-                    <input type="text" id="comment" name="comment" placeholder="komentarz..">
+                    <input type="text" name="comment" placeholder="komentarz..">
                     
                     <div style="display: flex; margin-top: 30px;">
-                        <input type="submit" value="Dodaj" style="width: 40%; margin-right: 5%; margin-left: 10%;">
-                        <input type="submit" value="Anuluj" style="width: 40%; margin-left: 5%; margin-right: 10%;">
+                        <input type="submit" value="Dodaj" style="width: 100%;">
                     </div>
                     
                 </form>

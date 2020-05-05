@@ -6,6 +6,109 @@
         exit();
     }
 
+    function getDateForDatabase(string $date): string {
+        $timestamp = strtotime($date);
+        $date_formated = date('Y-m-d H:i:s', $timestamp);
+        return $date_formated;
+    }
+
+    if(isset($_POST['amount']))
+    {
+        //Udana walidacja tak
+        $everything_good = true;
+
+
+        //sprawdzanie poprawnosci kwoty
+        $amount = $_POST['amount'];
+        $amount = str_replace(",",".",$amount); //zamiana przecinka na kropke;
+        if(!is_numeric($amount))
+        {
+            $everything_good = false;
+            $_SESSION['e_amount']= "Podaj kwotę";
+        }
+        
+        //sprawdzenie daty
+        $data = $_POST['date'];
+        
+        if($data == '') //jesli nie ma daty to wstawiamy dzisiejsza z systemu
+        {
+            $data = new DateTime();
+            $data = $data->format('Y-m-d');
+        }
+
+        if(strlen($data) < 10)
+        {
+            $everything_good = false;
+            $_SESSION['e_data']= "Nie prawidłowy format daty: yyyy-mm-dd";
+        }
+       
+        $year = substr($data, 0, 4);
+        $month = substr($data, 5,2);
+        $day = substr($data, 8,2); 
+
+        if(!checkdate($month, $day, $year))
+        {
+            $everything_good = false;
+            $_SESSION['e_data']= "Nie prawidłowy format daty: yyyy-mm-dd";
+        }
+        
+        $data = getDateForDatabase($data);
+        
+
+        //swybor kategorii
+        $category = $_POST['category'];
+
+        // pobranie komentarza
+        $comment = $_POST['comment'];
+
+        require_once "connect.php"; //dane do polaczenia w pliku
+        mysqli_report(MYSQLI_REPORT_STRICT);
+
+        try
+        {
+            $connect = new mysqli($host, $db_user, $db_password, $db_name );
+            if($connect->connect_errno!=0)
+            {
+                throw new Exception(mysqli_connect_errno());
+            }
+            else 
+            {
+                if($everything_good == true)
+                {
+                    $userid = $_SESSION['id'];
+                    $result = $connect->query("SELECT id FROM expenses_category_assigned_to_users 
+                    WHERE user_id = '$userid' AND name = '$category'");
+                    if ($result->num_rows > 0) 
+                    {
+                         // output data of each row
+                         
+                        while($row = $result->fetch_assoc()) {
+                        $category_id = $row["id"]; //wyciagniecie id kategorii;
+                        }
+                    }
+                   
+                    if($connect->query("INSERT INTO expenses VALUES(NULL, '$userid', '$category_id', '$amount', '$data', '$comment')"))
+                    {
+                        $_SESSION['good'] = true;
+                        header('Location: home.php'); 
+                    }
+                    else
+                    {
+                        throw new Exception($connect->error);
+                    }
+                }
+                    
+            }
+            $connect ->close();
+        }
+        catch(Exception $e)
+        {
+            echo 'Błąd serwera, spróbuj puźniej';
+            //echo '</br>info deweloperskie '.$e;
+        }
+        
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +126,26 @@
     <link rel="stylesheet" href="style.css">
     <!--Fonts-->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-
+    
+    <!-- input data-->
+    <script type="text/javascript">
+    var datefield=document.createElement("input")
+    datefield.setAttribute("type", "date")
+    if (datefield.type!="date"){ //if browser doesn't support input type="date", load files for jQuery UI Date Picker
+        document.write('<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />\n')
+        document.write('<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"><\/script>\n')
+        document.write('<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"><\/script>\n') 
+    }
+    </script>
+ 
+    <script>
+    if (datefield.type!="date"){ //if browser doesn't support input type="date", initialize date picker widget:
+    jQuery(function($){ //on document.ready
+        $('#birthday').datepicker();
+    })
+    }
+    </script>
+    <!-- end script-->
 </head>
 <body>
     <header>
@@ -67,38 +189,41 @@
                 <form action="#.php">
 
                      Kwota:
-                    <input type="text" id="name" name="name" placeholder="kwota..">
+                    <input type="text" name="amount" placeholder="kwota..">
 
                      Data: 
-                    <input type="date" id="date" name="date" >
+                    <input type="date"  name="date" placeholder="yyyy-mm-dd">
+                    <input type="date" name="date" placeholder = "yyyy-mm-dd">
+                        <?php
+                            if(isset($_SESSION['e_data'])){
+                                echo '<div class="error">'.$_SESSION['e_data'].'</div>';
+                                unset($_SESSION['e_data']);
+                            }
+                        ?>
                     
                     Wybierz kategorie: 
-                    <select name="lista">
-                        <option value = "Praca">Jedzenie</option>
-                        <option value="Opcja 2">Mieszkanie</option>
-                        <option>Transport</option>
-                        <option>Telekomunikacja</option>
-                        <option value=""> Opieka zdrowotna</option>
-                        <option value=""> Ubranie</option>
-                        <option value=""> Higiena</option>
-                        <option value=""> Dzieci </option>
-                        <option value=""> Rozrywka</option>
-                        <option value=""> Wycieczka</option>
-                        <option value="">Szkolenia</option>
-                        <option value="">Książki</option>
-                        <option value="">Oszczędności</option>
-                        <option value="">Na złotą jesień, czyli emeryturę</option>
-                        <option value="">Spłata długów</option>
-                        <option value="">Darowizna</option>
-                        <option value="">Inne wydatki</option>
+                    <select name="category">
+                        <option value = "Transport" name ="Transport">Transport</option>
+                        <option name = "Książki">Książki</option>
+                        <option name = "Jedzenie">Jedzenie</option>
+                        <option name = "Czynsz">Czynsz</option>
+                        <option name = "Media"> Media</option>
+                        <option name = "Zdrowie"> Zdrowie</option>
+                        <option name = "Ubrania"> Ubrania</option>
+                        <option name = "Higiena"> Higiena </option>
+                        <option name = "Dzieci"> Dzieci</option>
+                        <option name = "Wycieczka"> Wycieczka</option>
+                        <option name = "Recepty">Recepty</option>
+                        <option name = "Podróż">Podróż</option>
+                        <option name = "Prezenty">Prezenty</option>
+                        <option name = "Inne">Inne</option>
                     </select>
 
                     Komentarz: 
-                    <input type="text" id="comment" name="comment" placeholder="komentarz..">
+                    <input type="text" name="comment" placeholder="komentarz..">
                     
                     <div style="display: flex; margin-top: 30px;">
-                        <input type="submit" value="Dodaj" style="width: 40%; margin-right: 5%; margin-left: 10%;">
-                        <input type="submit" value="Anuluj" style="width: 40%; margin-left: 5%; margin-right: 10%;">
+                        <input type="submit" value="Dodaj" style="width: 100%;">
                     </div>
                     
                 </form>

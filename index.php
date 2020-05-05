@@ -60,8 +60,8 @@
                                 echo $_SESSION['blad'];
                                 ?> 
                                 <a href="register.php"><div class="lbutton">Zarejestruj się</div></a>
-                                
-                            </div>
+                    
+                        </div>
                     </div>
 
                 </div>
