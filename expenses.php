@@ -61,6 +61,13 @@
         // pobranie komentarza
         $comment = $_POST['comment'];
 
+
+        echo $comment."<br>";
+        echo $category."<br>";
+        echo $data."<br>";
+        echo $amount."<br>";
+        echo $_SESSION['id'];
+
         require_once "connect.php"; //dane do polaczenia w pliku
         mysqli_report(MYSQLI_REPORT_STRICT);
 
@@ -76,7 +83,7 @@
                 if($everything_good == true)
                 {
                     $userid = $_SESSION['id'];
-                    $result = $connect->query("SELECT id FROM expenses_category_assigned_to_users 
+                    $result = $connect->query("SELECT id FROM expenses_category_assigned_to_users
                     WHERE user_id = '$userid' AND name = '$category'");
                     if ($result->num_rows > 0) 
                     {
@@ -86,11 +93,12 @@
                         $category_id = $row["id"]; //wyciagniecie id kategorii;
                         }
                     }
-                   
-                    if($connect->query("INSERT INTO expenses VALUES(NULL, '$userid', '$category_id', '$amount', '$data', '$comment')"))
+                    //zrobic metode platnosci
+                    if($connect->query("INSERT INTO expenses 
+                    VALUES(NULL, '$userid', '$category_id', 1 ,'$amount', '$data', '$comment')"))
                     {
                         $_SESSION['good'] = true;
-                        header('Location: home.php'); 
+                        header('Location: home.php');
                     }
                     else
                     {
@@ -104,7 +112,7 @@
         catch(Exception $e)
         {
             echo 'Błąd serwera, spróbuj puźniej';
-            //echo '</br>info deweloperskie '.$e;
+            echo '</br>info deweloperskie '.$e;
         }
         
     }
@@ -186,14 +194,14 @@
             
             <div class="manage_panel">
                 <div class="heading"><i class="icon-minus"></i>Wydatek</div>
-                <form action="#.php">
 
+                <form method="POST">
                      Kwota:
                     <input type="text" name="amount" placeholder="kwota..">
 
                      Data: 
                     <input type="date"  name="date" placeholder="yyyy-mm-dd">
-                    <input type="date" name="date" placeholder = "yyyy-mm-dd">
+                    
                         <?php
                             if(isset($_SESSION['e_data'])){
                                 echo '<div class="error">'.$_SESSION['e_data'].'</div>';
